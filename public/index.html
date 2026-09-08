@@ -48,10 +48,40 @@
           <option value="hp">HP</option>
           <option value="other">Diğer</option>
         </select>
-        <input type="text" id="dev-serial" placeholder="Seri Numarası" required />
+        <input type="text" id="dev-serial" placeholder="Seri Numarası / Service Tag" required />
         <input type="text" id="dev-invoice" placeholder="Fatura No (opsiyonel)" />
         <button type="submit">Ekle ve Garanti Sorgula</button>
       </form>
+      <p id="add-device-result" class="hint"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Toplu Seri Numarası Sorgulama</h2>
+      <p class="hint">
+        Bir marka seçin ve TXT/CSV dosyası yükleyin. TXT'de her satıra bir seri numarası yazın.
+        CSV'de ilk sütun seri numarası olabilir.
+      </p>
+
+      <form id="bulk-serial-form">
+        <div class="inline-form">
+          <select id="bulk-manufacturer">
+            <option value="dell">Dell</option>
+            <option value="hp">HP</option>
+          </select>
+          <input type="file" id="serial-file" accept=".txt,.csv" />
+          <button type="submit">Seri Numaralarını Sorgula</button>
+        </div>
+      </form>
+
+      <textarea id="serial-text"
+        rows="8"
+        placeholder="Örnek:
+ABC123456
+ABC123457
+ABC123458"></textarea>
+
+      <p id="bulk-serial-result"></p>
+      <div id="bulk-serial-results"></div>
     </section>
 
     <section class="panel">
