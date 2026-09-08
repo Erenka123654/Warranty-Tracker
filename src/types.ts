@@ -32,15 +32,15 @@ export interface Device {
 
 export interface WarrantyLookupResult {
   found: boolean;
-  purchaseDate?: string;      // ISO date
-  warrantyEndDate?: string;   // ISO date
-  serviceLevel?: string;
+  purchaseDate?: string | null;
+  warrantyEndDate?: string | null;
+  serviceLevel?: string | null;
+  model?: string | null;
   raw?: unknown;
   error?: string;
 }
 
 export interface WarrantyConnector {
   manufacturer: string;
-  /** Look up warranty info directly from the manufacturer using a serial number / service tag. */
   lookup(serialNumber: string, env: Env): Promise<WarrantyLookupResult>;
 }
