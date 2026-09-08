@@ -1,0 +1,20 @@
+{
+  "name": "warranty-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create warranty-tracker-db",
+    "db:migrate:local": "wrangler d1 execute warranty-tracker-db --local --file=./schema.sql",
+    "db:migrate:remote": "wrangler d1 execute warranty-tracker-db --remote --file=./schema.sql"
+  },
+  "dependencies": {
+    "hono": "^4.6.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260908.1",
+    "typescript": "^5.6.0",
+    "wrangler": "^4.129.1"
+  }
+}
